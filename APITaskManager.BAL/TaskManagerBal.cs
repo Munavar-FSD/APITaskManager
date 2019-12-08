@@ -10,31 +10,54 @@ namespace APITaskManager.BAL
 {
     public class TaskManagerBal:IDisposable
     {
-        public bool AddTask()
+        public bool AddTask(TaskManagerDetails taskDetails)
         {
             try
             {
+                using (var repository = new TaskRepository())
+                {
+                    return repository.AddTask(taskDetails);
+                }
 
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return true;
         }
 
-        public bool UpdateTask()
+        public bool UpdateTask(TaskManagerDetails taskDetails)
         {
             try
             {
-
+                using (var repository = new TaskRepository())
+                {
+                    return repository.UpateTask(taskDetails);
+                }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return true;
+           // return true;
         }
+
+        public bool DeleteTask(int taskId)
+        {
+            try
+            {
+                using (var repository = new TaskRepository())
+                {
+                    return repository.DeleteTaskById(taskId);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            // return true;
+        }
+
 
         public List<TaskManagerDetails> GetTask()
         {

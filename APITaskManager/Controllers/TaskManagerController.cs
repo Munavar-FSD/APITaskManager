@@ -47,8 +47,16 @@ namespace APITaskManager.Controllers
             //return lsttaskManagers;
 
             // return TaskDbContext.TaskManagerList.ToList();
-            using (var taskList = new TaskManagerBal()) {
-                return taskList.GetTask();
+            try
+            {
+                using (var taskList = new TaskManagerBal())
+                {
+                    return taskList.GetTask();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
 
         }
@@ -72,21 +80,43 @@ namespace APITaskManager.Controllers
 
         [HttpPost]
         [Route("AddTaskById")]
-        public bool AddTaskManagerById(TaskManagerDetails TaskManager)
+        public bool AddTaskManager([FromBody]TaskManagerDetails TaskManager)
         {
-            bool status = false;
-            if (TaskManager != null)
+            try
             {
-                //TaskDbContext.TaskManagerList.Add(TaskManager);
-                status = true;
+                using(var task=new TaskManagerBal())
+                {
+                    return task.AddTask(TaskManager);
+                }
             }
-            return status;
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            //bool status = false;
+            //if (TaskManager != null)
+            //{
+            //    //TaskDbContext.TaskManagerList.Add(TaskManager);
+            //    status = true;
+            //}
+            //return status;
         }
 
         [HttpPut]
         [Route("EditTaskById")]
-        public bool EditTaskManagerById(TaskManagerModel TaskManager)
+        public bool EditTaskManagerById([FromBody]TaskManagerDetails TaskManager)
         {
+            try
+            {
+                using (var task = new TaskManagerBal())
+                {
+                    return task.UpdateTask(TaskManager);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             //TaskManagerDetails taskDetails = TaskDbContext.TaskManagerList.Find(t => t.Task_ID == TaskManager.Task_ID);
 
             //if (taskDetails != null)
@@ -97,14 +127,24 @@ namespace APITaskManager.Controllers
             //{
 
             //}
-            return false;
+            //return false;
         }
 
         [HttpDelete]
         [Route("DeleteTaskById")]
-        public bool DeleteTaskManagerById(TaskManagerModel TaskManager)
+        public bool DeleteTaskManagerById(int taskId)
         {
-            return false;
+            try
+            {
+                using (var task = new TaskManagerBal())
+                {
+                    return task.DeleteTask(taskId);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
