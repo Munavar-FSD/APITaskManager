@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{027453B0-81F8-4FF6-884D-1BF4A44A26B7}</ProjectGuid>
+    <ProjectGuid>{E0A98522-E0DB-4070-9319-B4733FF5E563}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>APITaskManager.DAL</RootNamespace>
@@ -49,22 +49,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBContext\DBContext.cs" />
     <Compile Include="DBContext\ParentTask.cs" />
     <Compile Include="DBContext\Task.cs" />
-    <Compile Include="DBContext\TaskDBContext.cs" />
-    <Compile Include="ITaskRepository.cs" />
-    <Compile Include="TaskRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\APITaskManager.Model\APITaskManager.Model.csproj">
-      <Project>{d86b60f4-ed7e-4b27-adc5-5525ebffe242}</Project>
-      <Name>APITaskManager.Model</Name>
-    </ProjectReference>
+    <Compile Include="Repository\ITaskRepository.cs" />
+    <Compile Include="Repository\TaskRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\APITaskManager.Model\APITaskManager.Model.csproj">
+      <Project>{b42bd479-8742-4a6d-a9f9-4f772b86bebb}</Project>
+      <Name>APITaskManager.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2B8E182D-2394-4BE6-ADC2-9F3EAE6821DC}</ProjectGuid>
+    <ProjectGuid>{8C520C39-5D09-4DDB-B45A-9DAC55E3480F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>APITaskManager.BAL</RootNamespace>
@@ -40,16 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TaskManagerBal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskManagerBal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\APITaskManager.DAL\APITaskManager.DAL.csproj">
-      <Project>{027453b0-81f8-4ff6-884d-1bf4a44a26b7}</Project>
+      <Project>{e0a98522-e0db-4070-9319-b4733ff5e563}</Project>
       <Name>APITaskManager.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\APITaskManager.Model\APITaskManager.Model.csproj">
-      <Project>{d86b60f4-ed7e-4b27-adc5-5525ebffe242}</Project>
+      <Project>{b42bd479-8742-4a6d-a9f9-4f772b86bebb}</Project>
       <Name>APITaskManager.Model</Name>
     </ProjectReference>
   </ItemGroup>

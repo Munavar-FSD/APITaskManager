@@ -26,6 +26,6 @@ namespace APITaskManager.DAL
 
         public int? Priority { get; set; }
 
-        public virtual TaskRepository ParentTask { get; set; }
+        public virtual ParentTask ParentTask { get; set; }
     }
 }

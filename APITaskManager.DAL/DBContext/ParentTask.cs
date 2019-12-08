@@ -7,7 +7,7 @@ namespace APITaskManager.DAL
     using System.Data.Entity.Spatial;
 
     [Table("ParentTask")]
-    public partial class TaskRepository
+    public partial class ParentTask
     {
         [Key]
         public int Parent_ID { get; set; }
