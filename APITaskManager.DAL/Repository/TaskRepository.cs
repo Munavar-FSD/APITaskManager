@@ -47,6 +47,7 @@ namespace APITaskManager.DAL
                     {
                         Task_ID = taskModel.Task_ID,
                         Parent_ID = taskModel.Parent_ID,
+                        Task1 = taskModel.Task,
                         Start_Date = taskModel.Start_Date,
                         End_Date = taskModel.End_Date,
                         Priority = taskModel.Priority,
@@ -56,7 +57,7 @@ namespace APITaskManager.DAL
                             Parent_Task = taskModel.Parent_Task
 
                         }
-                };
+                    };
                     context.Tasks.Add(addTask);
                     context.SaveChanges();
                     return true;
