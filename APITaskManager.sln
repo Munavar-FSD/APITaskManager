@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITaskManager.Model", "API
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITaskManager.BAL", "APITaskManager.BAL\APITaskManager.BAL.csproj", "{8C520C39-5D09-4DDB-B45A-9DAC55E3480F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITaskManager.Test", "APITaskManager.Test\APITaskManager.Test.csproj", "{4DF0549B-3683-4BD8-9F82-944A2E55EE7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8C520C39-5D09-4DDB-B45A-9DAC55E3480F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C520C39-5D09-4DDB-B45A-9DAC55E3480F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C520C39-5D09-4DDB-B45A-9DAC55E3480F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DF0549B-3683-4BD8-9F82-944A2E55EE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DF0549B-3683-4BD8-9F82-944A2E55EE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DF0549B-3683-4BD8-9F82-944A2E55EE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DF0549B-3683-4BD8-9F82-944A2E55EE7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

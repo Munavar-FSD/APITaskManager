@@ -22,7 +22,7 @@ namespace APITaskManager.DAL
                                     Task_ID = t.Task_ID,
                                     Task = t.Task1,
                                     Parent_Task = t.ParentTask.Parent_Task,
-                                    Priority = Convert.ToInt32(t.Priority),
+                                    Priority = t.Priority,
                                     Start_Date = t.Start_Date,
                                     End_Date = t.End_Date
                                 }).ToList();

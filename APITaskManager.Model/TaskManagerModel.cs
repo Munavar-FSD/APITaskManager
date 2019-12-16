@@ -16,7 +16,7 @@ namespace APITaskManager.Model
         public string Task { get; set; }
         public DateTime? Start_Date { get; set; }
         public DateTime? End_Date { get; set; }
-        public int Priority { get; set; }
+        public int? Priority { get; set; }
         public string Status { get; set; }
     }
 }

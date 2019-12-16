@@ -8,8 +8,15 @@ using APITaskManager.DAL;
 
 namespace APITaskManager.BAL
 {
-    public class TaskManagerBal:IDisposable
+    public class TaskManagerBal:IDisposable, ITaskManagerBal
     {
+        //private ITaskRepository<object> taskRepo;
+
+        //public TaskManagerBal(ITaskRepository<object> repos)
+        //{
+        //    this.taskRepo = repos;
+        //}
+
         public bool AddTask(TaskManagerDetails taskDetails)
         {
             try
