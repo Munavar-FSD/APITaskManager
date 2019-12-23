@@ -19,10 +19,10 @@ namespace APITaskManager.Controllers
         //static TaskManagerModel TaskDbContext;
         //static DbContext dbContext;
         
-        public TaskManagerController()
-        {
-            //TaskDbContext = new TaskManagerModel();
-        }
+        //public TaskManagerController()
+        //{
+        //    //TaskDbContext = new TaskManagerModel();
+        //}
 
         [HttpGet]
         [Route("AllTask")]
@@ -130,7 +130,7 @@ namespace APITaskManager.Controllers
             //return false;
         }
 
-        [HttpDelete]
+        [HttpGet]
         [Route("DeleteTaskById")]
         public bool DeleteTaskManagerById(int taskId)
         {

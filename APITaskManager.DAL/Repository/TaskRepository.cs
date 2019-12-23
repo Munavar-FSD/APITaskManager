@@ -8,7 +8,7 @@ namespace APITaskManager.DAL
 
     public partial class TaskRepository: ITaskRepository<TaskManagerDetails>, IDisposable
     {
-        public TaskRepository() { }
+        //public TaskRepository() { }
         public List<TaskManagerDetails> GetTaskDetails()
         {
             List<TaskManagerDetails> taskList;
@@ -20,6 +20,7 @@ namespace APITaskManager.DAL
                                 select new TaskManagerDetails()
                                 {
                                     Task_ID = t.Task_ID,
+                                    Parent_ID = t.Parent_ID,
                                     Task = t.Task1,
                                     Parent_Task = t.ParentTask.Parent_Task,
                                     Priority = t.Priority,
@@ -81,7 +82,7 @@ namespace APITaskManager.DAL
         {
             try
             {
-                using(var context =new DBContext())
+                using (var context = new DBContext())
                 {
                     var model = (from task in context.Tasks
                                  where task.Task_ID == taskModel.Task_ID
@@ -98,6 +99,26 @@ namespace APITaskManager.DAL
                     context.Tasks.Add(model);
                     context.Entry(model).State = EntityState.Modified;
                     context.SaveChanges();
+                }
+
+                using (var contextdb = new DBContext())
+                {
+                    if (taskModel.Parent_Task != null)
+                    {
+                        var parentModel = (from task in contextdb.ParentTasks
+                                           where task.Parent_ID == taskModel.Parent_ID
+                                           select task).FirstOrDefault();
+                        if (parentModel == null)
+                        {
+                            return false;
+                        }
+                        parentModel.Parent_Task = taskModel.Parent_Task;
+
+                        contextdb.ParentTasks.Add(parentModel);
+
+                        contextdb.Entry(parentModel).State = EntityState.Modified;
+                        contextdb.SaveChanges();
+                    }
                 }
             }
             catch(Exception ex)
@@ -123,6 +144,7 @@ namespace APITaskManager.DAL
                     }
                     context.Tasks.Remove(taskDetails);
                     context.Entry(taskDetails).State = EntityState.Deleted;
+                    context.SaveChanges();
                 }
             }
             catch(Exception ex)
